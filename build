@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+
+ensure_spreet() {
+  if [ ! -e spreet ]; then
+    echo Fetching spreet
+    wget https://github.com/flother/spreet/releases/download/v0.11.0/spreet-x86_64-unknown-linux-musl.tar.gz -O /tmp/spreet.tar.gz
+    tar xf /tmp/spreet.tar.gz
+
+  fi
+}
+
+main() {
+  git submodule init
+  git submodule update
+  ensure_spreet
+
+  rm -rf output svgs
+  mkdir output svgs
+
+  # spreet doesn't support symlinks, so copy all svgs into svgs folder
+  # copy temaki last, so conflicting names are served by maki
+  cp {,te}maki/icons/* svgs/ || true
+
+  # Some of temaki's sprites aren't 15x15. Delete them.
+  # This list created by running spreet with no limits, then:
+  # cat output/sprite.json | egrep '"height": (100|48|50)' --before-context 1 | grep '{' | sed -e 's#": {##' | sed -e 's# *"##' | tr '\n' ','
+  rm svgs/{abseiling,accounting,amusement_park,archery,atm,blind,boat_ramp,boat_tour,boating,bowling_alt1,canoe,car_dealer,car_wash,chairlift,climbing,cloth,compass,courthouse,cross_country_skiing,diving,fighter_jet,fish_cleaning,fishing_pier,food,gym,hair_care,hang_gliding,ice_fishing,ice_skating,inline_skating,jet_skiing,kayaking,latrine,lawyer,lock,movie_rental,pet_store,physiotherapist,pin,rafting,sailboat,sailing,scuba_diving,shopping_mall,skateboarding,ski_jumping,sledding,snow,snow_shoeing,snowboarding,spa,storage,surfing,taxi_stand,tents,toolbox,veterinary_care,water_bottle,waterskiing,whale_watching,wind_surfing}.svg
+
+  ./spreet --minify-index-file --sdf svgs output/sprite
+  ./spreet --minify-index-file --sdf --retina svgs output/sprite@2x
+
+  echo done
+
+}
+
+main

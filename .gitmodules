@@ -1,0 +1,6 @@
+[submodule "maki"]
+	path = maki
+	url = https://github.com/mapbox/maki/
+[submodule "temaki"]
+	path = temaki
+	url = https://github.com/rapideditor/temaki/
