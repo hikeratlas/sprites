@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="13" viewBox="0 0 15 13">
+  <rect id="mapnik_workaround" width="15" height="13" fill="none"/>
+  <!-- Flipped vertically from openstreetmap-carto: MapLibre puts the bottom of
+       a line-pattern image on the left of the line; OSM cliffs drop on the right.
+       1px transparent rows top and bottom stop the tick tips wrapping onto
+       the far edge when MapLibre samples the pattern. -->
+  <path transform="matrix(1 0 0 -1 0 12)" d="m0,5 v1 h5 l2,5 h1 l2,-5 h5 v-1 z" fill="#52525b"/>
+</svg>

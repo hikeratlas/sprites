@@ -30,6 +30,12 @@ main() {
   ./spreet --minify-index-file --sdf svgs output/sprite
   ./spreet --minify-index-file --sdf --retina svgs output/sprite@2x
 
+  # Full-colour fill/line patterns (scree, rock, cliffs) from patterns/.
+  # MapLibre can't use SDF images as patterns, and a sheet can't mix SDF and
+  # non-SDF images, so they get their own sheet; the style lists both.
+  ./spreet --minify-index-file patterns output/patterns
+  ./spreet --minify-index-file --retina patterns output/patterns@2x
+
   echo done
 
 }
