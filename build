@@ -21,6 +21,8 @@ main() {
   # spreet doesn't support symlinks, so copy all svgs into svgs folder
   # copy temaki last, so conflicting names are served by maki
   cp {,te}maki/icons/* svgs/ || true
+  # Our own icons (icons/, see README), last so they win any name clash.
+  cp icons/*.svg svgs/
 
   # Some of temaki's sprites aren't 15x15. Delete them.
   # This list created by running spreet with no limits, then:
