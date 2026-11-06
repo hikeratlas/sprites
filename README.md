@@ -11,6 +11,15 @@ on vector maps with MapLibre GL.
 ./build
 ```
 
+## Our own icons
+
+`icons/` holds icons drawn for Hiker Atlas, built into the SDF sheet with
+maki's and temaki's (and winning a name clash). Draw them 15×15, in black.
+
+| Icon | Used for |
+|---|---|
+| `ridgeline` | peaks: a jagged outline, unlike the campsite's triangle (hikeratlas/website#44) |
+
 ## Patterns
 
 `patterns/` holds full-colour fill and line patterns, built into a separate
