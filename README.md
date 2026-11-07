@@ -45,7 +45,7 @@ They come from [openstreetmap-carto](https://github.com/gravitystorm/openstreetm
 
 - Recoloured: scree is `#3f3f46` at 55% opacity, rock `#52525b` at 18%,
   wetland `#0d9488` at 60%, cliffs `#52525b`, scrub `#3f7a50` at 50%, sand
-  `#a07c3c` at 50%, and the forest symbols `#2f6e46` at 42%.
+  `#8a6a2e` at 55% and drawn at twice the size, and the forest symbols `#2f6e46` at 42%.
 - Cliffs are flipped vertically, with a transparent 1px row added top and
   bottom. MapLibre puts the bottom of a `line-pattern` image on the left of the
   line, and OSM draws cliffs with the drop on the right. Without the padding,
