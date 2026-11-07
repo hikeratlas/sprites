@@ -33,13 +33,19 @@ sheets, and refers to patterns as `patterns:<name>`.
 | `rock` | `natural=bare_rock` |
 | `cliff`, `cliff2` | `natural=cliff` lines; `cliff2` is the larger one, for close zooms |
 | `wetland` | `natural=wetland` (horizontal dashes) |
+| `scrub` | `natural=scrub` (scattered shrubs) |
+| `sand` | `natural=beach`, `natural=sand` (grains) |
+| `forest-needleleaved`, `forest-broadleaved`, `forest-mixed` | forests by `leaf_type` |
 
 They come from [openstreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto)'s
 `symbols/` (`generating_patterns/scree.svg`, `generating_patterns/rock.svg`,
-`generating_patterns/wetland.svg`, `cliff.svg`, `cliff2.svg`), which are CC0. Changes from the originals:
+`generating_patterns/wetland.svg`, `generating_patterns/scrub.svg`,
+`generating_patterns/beach.svg`, `leaftype_needleleaved.svg`, `leaftype_broadleaved.svg`,
+`leaftype_mixed.svg`, `cliff.svg`, `cliff2.svg`), which are CC0. Changes from the originals:
 
 - Recoloured: scree is `#3f3f46` at 55% opacity, rock `#52525b` at 18%,
-  wetland `#0d9488` at 60%, and cliffs `#52525b`.
+  wetland `#0d9488` at 60%, cliffs `#52525b`, scrub `#3f7a50` at 50%, sand
+  `#a07c3c` at 50%, and the forest symbols `#2f6e46` at 42%.
 - Cliffs are flipped vertically, with a transparent 1px row added top and
   bottom. MapLibre puts the bottom of a `line-pattern` image on the left of the
   line, and OSM draws cliffs with the drop on the right. Without the padding,
